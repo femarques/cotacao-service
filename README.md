@@ -5,12 +5,19 @@
 Criar um serviço responsável pelo fluxo de cotações de seguro. Os casos de uso que devem ser atendidos são:
 
 1. Receber cotações de seguro.
+
     a. Validar se o produto e a oferta contidas na cotação existem, consultando a API de Catálogo;
+
     b. Validar se todas as assistências presentes na cotação são oferecidas pela oferta;
+    
     c. Validar se todas as coberturas presentes na cotação são oferecidas pela oferta, e se o valor de cada cobertura fornecido não ultrapassa o valor máximo definido na oferta;
+    
     d. Validar se o valor de cobertura total informado na cobertura corresponde à soma dos valores individuais de cada cobertura;
+    
     e. Validar se o valor do prêmio mensal está dentro da faixa estabelecida pela oferta;
+    
     f. Caso válido, inserir a cotação no banco de dados;
+    
     g. E por fim publicar na fila `insurance-quote-received` o ID da cotação para que o serviço de Apólices possa gerar a apólice.
 
 2. Disponibilizar consulta de cotações através do ID.
