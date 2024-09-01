@@ -37,12 +37,18 @@ Foi criado um serviço dentro da aplicação que realiza o consumo da fila `insu
 ### Serviço de Cotações
 
 O serviço de Cotações foi dividido em camadas, sendo as quais:
-a. Controllers (camada de apresentação)
-b. Errors (erros de regra de negócio)
-c. External Services (acesso a serviços externos - API de Catálogo e publicação na fila `insurance-quote-received`)
-d. Models (definição das entidades do banco de dados)
-e. Repositories (acesso ao banco de dados)
-f. Services (lógica de negócio)
+
+    a. Controllers (camada de apresentação)
+
+    b. Errors (erros de regra de negócio)
+
+    c. External Services (acesso a serviços externos - API de Catálogo e publicação na fila `insurance-quote-received`)
+
+    d. Models (definição das entidades do banco de dados)
+
+    e. Repositories (acesso ao banco de dados)
+
+    f. Services (lógica de negócio)
 
 #### Controllers
 
@@ -65,9 +71,11 @@ Dentro de `external_services`, estão dispostas as classes que acionam serviços
 
 Dentro de `models/` estão as entidades do escopo do projeto, sendo elas `Assistance`, `Coverage`, `Customer` e `Quote`. Os relacionamentos entre as entidades são:
 
-a. Quote -> Customer: 1 -> 1;
-b. Quote -> Assistance: 1 -> N;
-c. Quote -> Coverage: 1 -> N.
+    a. Quote -> Customer: 1 -> 1;
+
+    b. Quote -> Assistance: 1 -> N;
+
+    c. Quote -> Coverage: 1 -> N.
 
 #### Repositories
 
@@ -77,5 +85,5 @@ Dentro de `repositories/` estão dispostos os repositórios para manipulação d
 
 Em `services/quote/` está definida a classe `QuoteService`, que implementa os casos de uso de criação de Cotação, busca pelo ID e inserção do ID de apólice na Cotação. Também se encontram os DTOs utilizados nestes casos de uso, quando aplicável;
 
-Em `services/policy` está descrito o serviço de apólices, responsável por receber o ID da Cotação na fila `insurance-quote-received`, gerar um ID de apólice, e devolver ambos IDs na fila `insurance-policy-created`
+Em `services/policy` está descrito o serviço de apólices, responsável por receber o ID da Cotação na fila `insurance-quote-received`, gerar um ID de apólice, e devolver ambos IDs na fila `insurance-policy-created`.
 
