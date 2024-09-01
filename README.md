@@ -38,17 +38,17 @@ Foi criado um serviço dentro da aplicação que realiza o consumo da fila `insu
 
 O serviço de Cotações foi dividido em camadas, sendo as quais:
 
-    a. Controllers (camada de apresentação)
+a. Controllers (camada de apresentação)
 
-    b. Errors (erros de regra de negócio)
+b. Errors (erros de regra de negócio)
 
-    c. External Services (acesso a serviços externos - API de Catálogo e publicação na fila `insurance-quote-received`)
+c. External Services (acesso a serviços externos - API de Catálogo e publicação na fila `insurance-quote-received`)
 
-    d. Models (definição das entidades do banco de dados)
+d. Models (definição das entidades do banco de dados)
 
-    e. Repositories (acesso ao banco de dados)
+e. Repositories (acesso ao banco de dados)
 
-    f. Services (lógica de negócio)
+f. Services (lógica de negócio)
 
 #### Controllers
 
@@ -71,11 +71,11 @@ Dentro de `external_services`, estão dispostas as classes que acionam serviços
 
 Dentro de `models/` estão as entidades do escopo do projeto, sendo elas `Assistance`, `Coverage`, `Customer` e `Quote`. Os relacionamentos entre as entidades são:
 
-    a. Quote -> Customer: 1 -> 1;
+a. Quote -> Customer: 1 -> 1;
 
-    b. Quote -> Assistance: 1 -> N;
+b. Quote -> Assistance: 1 -> N;
 
-    c. Quote -> Coverage: 1 -> N.
+c. Quote -> Coverage: 1 -> N.
 
 #### Repositories
 
