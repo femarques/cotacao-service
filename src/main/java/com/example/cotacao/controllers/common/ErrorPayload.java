@@ -1,4 +1,4 @@
-package com.example.cotacao.controllers;
+package com.example.cotacao.controllers.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

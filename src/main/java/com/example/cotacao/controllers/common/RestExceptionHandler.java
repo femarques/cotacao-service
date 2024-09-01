@@ -1,4 +1,4 @@
-package com.example.cotacao.controllers;
+package com.example.cotacao.controllers.common;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
