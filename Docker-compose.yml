@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: db
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - api-net
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566" # health check - http://localhost:4566/health
+      # - "4571:4571"
+
+    environment:
+      - SERVICES=sqs
+      - DEBUG=1
+      - PERSISTENCE=/tmp/localstack/data
+      - AWS_DEFAULT_REGION=us-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - './create-aws-infra.sh:/etc/localstack/init/ready.d/init-aws.sh'
+
+    networks:
+      - api-net
+
+  sqs-sns-client:
+    image: lucksjb/aws-sqs-sns-client
+    container_name: sqs-sns-client
+    ports:
+      - "3010:3000"
+
+    networks:
+      - api-net
+
+  json-server:
+    image: clue/json-server
+    container_name: json-server
+    tty: true
+    volumes:
+      - .\db.json:/data/db.json
+      
+    ports:
+      - 81:80
+
+    networks: 
+      - api-net
+
+networks:
+  api-net:
+    name: api-net
+    driver: bridge
+
+

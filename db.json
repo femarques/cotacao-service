@@ -1,0 +1,41 @@
+{
+    "products": [
+        {
+            "id": "2d98cde7-4059-45a1-a95a-6c5594cfd96c",
+            "name": "Seguro de Vida",
+            "created_at": "2021-07-01T00:00:00Z",
+            "active": true,
+            "offers": [
+                "36b90cc6-66a9-438d-8d96-23d9e86d8247",
+                "c8091d13-fa84-4dc6-8b56-51b0b89a9430",
+                "3c112f83-0d12-4320-87a9-55241dffa5c0"
+            ]
+        }
+    ],
+    "offers": [
+        {
+            "id": "36b90cc6-66a9-438d-8d96-23d9e86d8247",
+            "product_id": "2d98cde7-4059-45a1-a95a-6c5594cfd96c",
+            "name": "Seguro de Vida Familiar",
+            "created_at": "2021-07-01T00:00:00Z",
+            "active": true,
+            "coverages": {
+                "Incêndio": 500000.00,
+                "Desastres Naturais": 600000.00,
+                "Responsabilidade Civil": 80000.00,
+                "Roubo": 100000.00
+            },
+            "assistances": [
+                "Encanador",
+                "Eletricista",
+                "Chaveiro 24h",
+                "Assistência Funerária"
+            ],
+            "monthly_premium_amount": {
+                "max_amount": 100.74,
+                "min_amount": 50.00,
+                "suggested_amount": 60.25
+            }
+        }
+    ]
+}
