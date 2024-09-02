@@ -8,11 +8,20 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.cotacao.errors.BusinessError;
+import com.example.cotacao.errors.OfferNotFoundError;
+import com.example.cotacao.errors.QuoteNotFoundError;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class RestExceptionHandler {
+    
+    @ExceptionHandler(QuoteNotFoundError.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<Void> handleNotFound(QuoteNotFoundError exception, HttpServletRequest request){
+        return ResponseEntity.notFound().build();
+    }
 
     @ExceptionHandler(BusinessError.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
