@@ -16,14 +16,14 @@ public class PolicyCreatedQueueListener {
 
     @SqsListener("insurance-policy-created")
     public void receivePolicyId(String message) {
-        var data = parseMessage(message);
+        var data = PolicyCreatedQueueListener.parseMessage(message);
         if (data == null) {
             return;
         }
         quoteService.addPolicyToQuote(data.getQuoteId(), data.getPolicyId());
     }
 
-    public PolicyCreatedDTO parseMessage(String message){
+    public static PolicyCreatedDTO parseMessage(String message){
         Gson gson = new Gson();
         try {
             return gson.fromJson(message, PolicyCreatedDTO.class);

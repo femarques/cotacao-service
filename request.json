@@ -6,8 +6,8 @@
     "total_coverage_amount": 825000.00,
     "coverages": {
         "Incêndio": 250000.00,
-        "Desastres naturais": 500000.00,
-        "Responsabilidade civil": 75000.00
+        "Desastres Naturais": 500000.00,
+        "Responsabilidade Civil": 75000.00
     },
     "assistances": [
         "Encanador",

@@ -16,18 +16,18 @@ public class PolicyMockService {
 
     @SqsListener("insurance-quote-received")
     public void createPolicyToQuote(String message){
-        var quoteId = getQuoteIdFromMessage(message);
-        var policyId = createPolicyId();
+        var quoteId = PolicyMockService.getQuoteIdFromMessage(message);
+        var policyId = PolicyMockService.createPolicyId();
         sendPolicyId(quoteId, policyId);
     }
 
-    public Long getQuoteIdFromMessage(String message) {
+    public static Long getQuoteIdFromMessage(String message) {
         var gson = new Gson();
         var data = gson.fromJson(message, CreatePolicyToQuoteDTO.class);
         return data.getQuoteId();
     }
 
-    public Long createPolicyId(){
+    public static Long createPolicyId(){
         long generatedLong = 1L + (long) (Math.random() * (9999L - 1L));
         return generatedLong;
     }

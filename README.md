@@ -28,7 +28,7 @@ Criar um serviço responsável pelo fluxo de cotações de seguro. Os casos de u
 
 ### API de Catálogo
 
-Foi utilizado um Mock Server (`clue/json-server`) para mockar a API. A configuração de respostas pode ser encontrada no arquivo `db.json`, e o Mock server está publicado na porta 81 do localhost.
+Foi utilizado um Mock Server (`clue/json-server`) para mockar a API. A configuração de respostas pode ser encontrada no arquivo `db.json`, e o Mock server está publicado na porta 81 do localhost. Ele oferece rotas `/products`, `/products/{id}`, `/offers` e `/offers/{id}`
 
 ### Serviço de Apólices
 
@@ -87,3 +87,22 @@ Em `services/quote/` está definida a classe `QuoteService`, que implementa os c
 
 Em `services/policy` está descrito o serviço de apólices, responsável por receber o ID da Cotação na fila `insurance-quote-received`, gerar um ID de apólice, e devolver ambos IDs na fila `insurance-policy-created`.
 
+## Infraestrutura utilizada
+
+1. Localstack - para criar as filas AWS SQS localmente;
+
+2. PostgreSQL - como banco de dados;
+
+3. JSON Server - como API Rest Mock.
+
+## Principais dívidas técnicas
+
+1. Falta de testes de integração;
+
+2. Assistências e coberturas tem uma chave muito fraca (String). Poderia ser um ID proveniente da API de Catalogos;
+
+3. Falta de configurações avançadas do SQS, tanto no consumo (VisibilityTimeout, por exemplo), quanto na produção de mensagens (assincronia, por exemplo);
+
+4. Criação de infra AWS através do CLI e não via Terraform;
+
+5. Tratamento de erros HTTP no client que comunica com API de Catálogos é fraco.
