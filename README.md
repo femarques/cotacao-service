@@ -95,6 +95,12 @@ Em `services/policy` está descrito o serviço de apólices, responsável por re
 
 3. JSON Server - como API Rest Mock.
 
+Para subir a infra, execute:
+
+```sh
+docker compose -f "Docker-compose.yml" up -d --build 
+```
+
 ## Principais dívidas técnicas
 
 1. Falta de testes de integração;

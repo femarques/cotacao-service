@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.cotacao.errors.BusinessError;
-import com.example.cotacao.errors.OfferNotFoundError;
 import com.example.cotacao.errors.QuoteNotFoundError;
 
 import jakarta.servlet.http.HttpServletRequest;
